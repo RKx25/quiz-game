@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Заголовки */
+.game-header, .lobby-header, .results-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Поля ввода */
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* Кнопки */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    color: #333;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-small {
+    padding: 5px 10px;
+    font-size: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Формы */
+.form-section {
+    margin-top: 20px;
+}
+
+.card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.button-group {
+    text-align: center;
+}
+
+.divider {
+    margin: 20px 0;
+    color: #999;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #ddd;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.join-section {
+    display: flex;
+    gap: 10px;
+}
+
+.join-section .input-field {
+    flex: 2;
+}
+
+.join-section .btn {
+    flex: 1;
+}
+
+/* Лобби */
+.lobby-code-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 18px;
+}
+
+.lobby-code-box strong {
+    font-size: 24px;
+    color: #667eea;
+    font-family: monospace;
+}
+
+.players-section {
+    margin: 30px 0;
+}
+
+.players-list {
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.players-list li {
+    padding: 12px;
+    margin: 8px 0;
+    background: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.player-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.player-score {
+    color: #667eea;
+    font-weight: bold;
+}
+
+.lobby-controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.waiting-message {
+    text-align: center;
+    margin-top: 20px;
+    color: #999;
+    font-style: italic;
+}
+
+/* Игра */
+.game-container {
+    max-width: 800px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.question-counter {
+    font-weight: bold;
+    color: #667eea;
+}
+
+.timer {
+    font-weight: bold;
+    color: #dc3545;
+    font-size: 20px;
+}
+
+.question-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.question-box h2 {
+    color: white;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.option-btn {
+    padding: 15px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.option-btn:hover {
+    transform: translateY(-2px);
+    border-color: #667eea;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.option-btn:active {
+    transform: translateY(0);
+}
+
+.option-correct {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.option-wrong {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.waiting-next {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #999;
+}
+
+/* Результаты */
+.results-container {
+    max-width: 700px;
+}
+
+.leaderboard-section {
+    margin: 30px 0;
+}
+
+.leaderboard-list {
+    list-style: none;
+    counter-reset: leaderboard-counter;
+}
+
+.leaderboard-list li {
+    padding: 15px;
+    margin: 10px 0;
+    background: #f8f9fa;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    counter-increment: leaderboard-counter;
+    position: relative;
+    padding-left: 50px;
+}
+
+.leaderboard-list li::before {
+    content: counter(leaderboard-counter);
+    position: absolute;
+    left: 15px;
+    font-weight: bold;
+    color: #667eea;
+    font-size: 20px;
+}
+
+.leaderboard-list li:first-child {
+    background: linear-gradient(135deg, #ffd89b 0%, #c7e9fb 100%);
+    font-weight: bold;
+}
+
+.leaderboard-list li:first-child::before {
+    content: "🥇";
+    font-size: 24px;
+}
+
+.leaderboard-list li:nth-child(2)::before {
+    content: "🥈";
+    font-size: 24px;
+}
+
+.leaderboard-list li:nth-child(3)::before {
+    content: "🥉";
+    font-size: 24px;
+}
+
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.player-name-result {
+    font-weight: bold;
+}
+
+.player-score-result {
+    color: #667eea;
+    font-weight: bold;
+}
+
+.results-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lobby-controls,
+    .results-actions {
+        flex-direction: column;
+    }
+    
+    .join-section {
+        flex-direction: column;
+    }
+    
+    .lobby-code-box {
+        flex-direction: column;
+    }
+}
